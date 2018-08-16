@@ -1,0 +1,41 @@
+#include<stdio.h>
+void arrayrotation(int[] arr,int d,int n);
+void printArray(int[],int);
+void leftrotation(int[] arr,int d,int n);
+
+
+void arrayrotation(int arr[],int d,int n)
+{
+leftrotation(arr,0,d-1);
+leftrotation(arr,d,n);
+leftrotation(arr,0,n);
+
+
+}
+void leftrotation(int arr[],int start,int end);
+{
+int temp;
+while(start<end)
+{
+temp=arr[start];
+arr[start]=arr[end];
+arr[end]=temp;
+start++;
+end--;
+}
+}
+
+void printarray(int arr[],int n);
+{
+int i;
+for(i=0;i<=n;i++)
+	printf("%d",arr[i]);
+}
+int main()
+{
+int arr[]={2,3,4,6,5};
+int n=sizeof(arr)/sizeof(int);
+int d=2;
+arryarotation(arr,2,n-1);
+printarray(arr,n-1);
+}
