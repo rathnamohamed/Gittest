@@ -1,0 +1,35 @@
+public class BinarySearch {
+
+    static int findpos(int array[],int X,int Y,int l,int h)
+    {
+        int mid=0;
+        int size = array.length-1;
+        while(l<=h)
+        {
+            mid=(h+l)/2;
+            if(mid==0  && (array[mid]+X)>=Y && (array[mid+1]+X)>Y)
+                return mid;
+            if(mid==size && (array[mid]+X)>=Y && (array[mid-1]+X)<Y)
+                return mid;
+            if(((array[mid]+X)>=Y)&& ((array[mid-1]+X)<Y) && ((array[mid+1]+X)>Y))
+                return mid;
+            else if((array[mid]+X)<Y)
+                l=mid+1;
+            else if((array[mid]+X)>Y)
+                h=mid-1;
+        }      
+        return -1;
+        
+    }
+    public static void main(String[] args) {
+        int X = 5;
+        int size = 5;
+        int array[] = {2,22,23,24,25};
+        int Y = 20;
+        int re = findpos(array,X,Y,0,array.length-1);
+        System.out.println(re);
+        if(re>=0)
+            System.out.println(array[re]+X);
+        else
+            System.out.println("No solution");
+    }
